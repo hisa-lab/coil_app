@@ -1,0 +1,25 @@
+<div [formGroup]="form">
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="coil">coil</label>
+      <textarea class="form-control" formControlName="coil"></textarea>
+    </div>
+
+  </div>
+
+  <p>
+    カテゴリ：
+    <mat-button-toggle-group #category="matButtonToggleGroup" appearance="legacy" (change)="onValChangeCategory($event)">
+      <mat-button-toggle *ngFor="let item of categorys;" [value]="item">{{item.ja}}</mat-button-toggle>
+    </mat-button-toggle-group>
+  </p>
+  <p>
+    難易度：
+    <mat-button-toggle-group #level="matButtonToggleGroup" appearance="legacy" (change)="onValChangeLevel($event)">
+      <mat-button-toggle *ngFor="let item1 of levels;" [value]="item1">{{item1.ja}}</mat-button-toggle>
+    </mat-button-toggle-group>
+  </p>
+
+  <button type="submit" class="btn btn-info" (click)="Submit()" data-dismiss="modal" [disabled]="!form.valid">送信</button>
+
+</div>

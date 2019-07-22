@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models",
+      "../node_modules/loopback-component-passport/lib/models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "accessToken": {
+    "dataSource": "mdb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mdb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mdb",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mdb",
+    "public": false
+  },
+  "Account": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "ValidUser": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "Post": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "recipe": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "coil": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "words": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "answers": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "Questions": {
+    "dataSource": "mdb",
+    "public": true
+  }
+}

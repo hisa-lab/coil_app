@@ -1,0 +1,11 @@
+{
+  "mdb": {
+    "host": "dev-mysql",
+    "port": 3306,
+    "database": "api",
+    "password": "apipasswd",
+    "name": "mdb",
+    "connector": "mysql",
+    "user": "apiuser"
+  }
+}

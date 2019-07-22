@@ -1,0 +1,53 @@
+<div class="container">
+  <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onClickLevel($event)">
+    <div *ngFor="let level of levels">
+      <mat-tab label={{level.ja}}>
+        <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onClickCategory($event)">
+          <div *ngFor="let category of categorys">
+            <mat-tab label={{category.ja}}>
+            </mat-tab>
+          </div>
+        </mat-tab-group>
+      </mat-tab>
+    </div>
+  </mat-tab-group>
+  <ul>
+    <li class="list-group-item list-group-item-secondary">
+      問題リスト
+      <p>
+        <font size="5">正解率{{ans_rate}}%</font>
+      </p>
+      <p>
+        <meter max="100" value={{ans_rate}} title="正解率"></meter>
+      </p>
+    </li>
+    <div *ngFor="let coil of coils">
+      <div *ngIf="state(coil.id); else elseBlock">
+        <div class="list-group-item list-group-item-success" routerLink="/try/{{coil.keyword}}">
+          <div>
+            {{coil.keyword}}:クリア！
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div class="list-group-item" routerLink="/try/{{coil.keyword}}">
+          <div>
+            {{coil.keyword}}:未クリア
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+  </ul>
+</div>
+<!-- <mat-tab-group mat-align-tabs="center">
+  <mat-tab label="First">Content 1
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="First">Content 1</mat-tab>
+      <mat-tab label="Second">Content 2</mat-tab>
+      <mat-tab label="Third">Content 3</mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+  <mat-tab label="Second">Content 2</mat-tab>
+  <mat-tab label="Third">Content 3</mat-tab>
+</mat-tab-group> -->

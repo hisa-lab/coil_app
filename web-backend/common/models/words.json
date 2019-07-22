@@ -1,0 +1,51 @@
+{
+  "name": "words",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "eng": {
+      "type": "string",
+      "required": true
+    },
+    "jpn": {
+      "type": "string",
+      "required": true
+    },
+    "lv": {
+      "type": [
+        {
+          "lable": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "kategori": {
+      "type": "string",
+      "required": true
+    },
+    "sentence": {
+      "type": {
+        "en": {
+          "type": "string"
+        },
+        "jp": {
+          "type": "string"
+        }
+      }
+    },
+    "imgURL": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

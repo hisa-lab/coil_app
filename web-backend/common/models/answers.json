@@ -1,0 +1,27 @@
+{
+  "name": "answers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "mark": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "coil": {
+      "type": "belongsTo",
+      "model": "coil"
+    },
+    "account": {
+      "type": "belongsTo",
+      "model": "Account"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

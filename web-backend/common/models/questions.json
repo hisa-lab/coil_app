@@ -1,0 +1,32 @@
+{
+  "name": "Questions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "en": {
+      "type": "array"
+    },
+    "ja": {
+      "type": "string"
+    },
+    "input": {
+      "type": "array"
+    },
+    "ans": {
+      "type": "array"
+    },
+    "example": {
+      "type": "string"
+    },
+    "judge": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

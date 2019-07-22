@@ -1,0 +1,74 @@
+<!--<h1> {{readData()}}</h1> もしその場で結果表示するならこれ-->
+<div class="center-block">
+  <h1>{{coil_keyword}}</h1>
+</div>
+
+
+
+<div class="main-content">
+  <mat-card>
+    <mat-card-content>
+
+      <table id="mid">
+        <!-- //前のレイアウトならこれ
+        <table class= "table">
+        <thead>
+            <td align="center">日本語</td>
+            <td>
+                英語
+            </td>
+        </thead>
+        -->
+        <tbody>
+          <tr *ngFor="let item of words let j=index;">
+            <td align="right">
+              {{words[j].ja}}→
+            </td>
+
+            <td>
+              <div *ngFor="let word of words[j].en; let i= index" class="input-eng">
+                <input type=" text " class="word " [(ngModel)]="words[j].ans[i]" maxlength="1 " value={{i}} id="{{i}}"
+                  #input (keyup)="autofocus(j,i,$event)">
+              </div>
+            </td>
+            <td>
+              <!-- <font size="5" color="red">{{words[j].judge}}</font> -->
+              <p *ngIf="words[j].judge=='×'; else elseBlock" [@EnterLeave]="'flyIn'">
+                <font size="5" color="red">{{words[j].judge}}{{words[j].example}}</font>
+                <button type="button" class="btn btn-danger" (click)="speech(words[j].example) ">▶再生</button>
+                <!-- {{words[j].judge}} -->
+              </p>
+              <ng-template #elseBlock>
+                <font size="5" color="red">{{words[j].judge}}</font>
+              </ng-template>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class=" center-block ">
+  <p>
+  </p>
+  <p>
+  </p>
+
+  <p>
+    <button type="button" class="btn btn-danger" (click)="giveup() ">ギブアップ▶</button>
+  </p>
+  <p *ngIf=condition>
+    <button type="button" class="btn btn-danger" (click)="init()">もう一度挑戦する</button>
+  </p>
+  <p *ngIf=condition>
+    <button type="button" class="btn btn-danger" (click)="home()">別の問題へ</button>
+  </p>
+  <p *ngIf=condition>
+    <button type="button" class="btn btn-danger" (click)="review()">復習</button>
+  </p>
+
+
+</div>

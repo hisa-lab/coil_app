@@ -1,0 +1,47 @@
+version: '3'
+services:
+  web-frontend:
+    build: ./web-frontend
+    image: registry.nwing.net/act/coil-web-frontend:latest
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./web-frontend:/app
+      - /app/node_modules
+    links:
+      - "web-backend"
+    restart: always
+  web-backend:
+    build: ./web-backend
+    image: registry.nwing.net/act/coil-web-backend:latest
+    command : npm run devstart
+    environment:
+      NODE_ENV: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./web-backend:/app
+      - ./web-frontend:/app/front
+      - /app/node_modules
+    links:
+      - "dev-mysql"
+    restart: always
+  dev-mysql:
+    image: mysql:5
+    command: mysqld --character-set-server=utf8mb4
+    environment:
+      MYSQL_ROOT_PASSWORD: "mysqlrootpass"
+    volumes:
+      - ./db/db-data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
+    restart: always
+  pma:
+    links:
+      - "dev-mysql"
+    environment:
+        PMA_HOST: "dev-mysql"
+        PMA_USER: "apiuser"
+        PMA_PASSWORD: "apipasswd"
+    image: phpmyadmin/phpmyadmin:4.7
+    ports:
+        - "8080:80"

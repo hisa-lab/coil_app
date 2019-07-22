@@ -1,0 +1,18 @@
+{
+    "google-login": {
+        "provider": "google",
+        "module": "passport-google-oauth",
+        "strategy": "OAuth2Strategy",
+        "clientID": "101453006565-3bpbctaqf3edd41rj3ppenee9s8d8i0c.apps.googleusercontent.com",
+        "clientSecret": "W76L41VBL_seTSmzfn-WEK-L",
+        "callbackURL": "http://coil-app.net/auth/google/callback",
+        "authPath": "/auth/google",
+        "callbackPath": "/auth/google/callback",
+        "successRedirect": "/#/login/Success",
+        "failureRedirect": "/#/login/failed",
+        "scope": [
+            "email",
+            "profile"
+        ]
+    }
+}
