@@ -94,35 +94,50 @@ export class TryComponent implements OnInit {
   speech_set: any;
   account: any;
   word_jpn: any;
+  keyword_jpn: any;
+  not_clear: any;
   //回答をの状態をチェックする
   answer() {
     //すべての回答が正解であれば、その問題はクリア
     //そうでなければ未クリア状態に
     if (this.words.every(word => word.judge === "○")) {
       //問題クリア
-      this.answers.mark = true;
+      this.TrydataService.clear_word_listin(this.coil.id);
+      this.not_clear = false;
     }
     else {
-      this.answers.mark = false;
+      this.not_clear = true;
     }
-    //回答状態を更新
-    this.AnswersApi.find({
-      where: {
-        coilId: this.coil.id,
-        accountId: this.account.id
-      }
-    }).subscribe((answers: Answers[]) => {
-      if (answers.length === 0) {
-        this.answers.coilId = this.coil.id;
-        this.answers.accountId = this.account.id;
-        this.AnswersApi.replaceOrCreate(this.answers).subscribe((answers: Answers = new Answers) => {
-        });
-      } else {
-        answers[0].mark = this.answers.mark;
-        this.AnswersApi.replaceOrCreate(answers[0]).subscribe((answers: Answers = new Answers) => {
-        });
-      }
-    });
+    // this.TrydataService.clear_word['aa'] = clearword;
+    // this.answers.mark = true;
+    //   } else {
+    //     const clearword = {
+    //       coilID: this.coil.id,
+    //       mark: false
+    //     };
+    //     this.TrydataService.clear_word_listin(this.coil.id);
+    //     // this.TrydataService.clear_word = clearword;
+    //     // this.answers.mark = true;
+    //     // this.answers.mark = false;
+    //   }
+    //   //回答状態を更新
+    //   // this.AnswersApi.find({
+    //   //   where: {
+    //   //     coilId: this.coil.id,
+    //   //     accountId: this.account.id
+    //   //   }
+    //   // }).subscribe((answers: Answers[]) => {
+    //   //   if (answers.length === 0) {
+    //   //     this.answers.coilId = this.coil.id;
+    //   //     this.answers.accountId = this.account.id;
+    //   //     this.AnswersApi.replaceOrCreate(this.answers).subscribe((answers: Answers = new Answers) => {
+    //   //     });
+    //   //   } else {
+    //   //     answers[0].mark = this.answers.mark;
+    //   //     this.AnswersApi.replaceOrCreate(answers[0]).subscribe((answers: Answers = new Answers) => {
+    //   //     });
+    //   //   }
+    //   // });
   }
   //与えられたワードを英語で再生
   speech(word) {
@@ -143,8 +158,14 @@ export class TryComponent implements OnInit {
   judge(row: number) {
     if (this.words[row].ans.toString() === this.words[row].en.toString()) {
       this.words[row].judge = "○";
+      if (this.words.every(word => word.judge === "○")) {
+        //問題クリア
+        this.TrydataService.clear_word_listin(this.coil.id);
+        this.not_clear = false;
+      }
     } else {
       this.words[row].judge = "×";
+      this.not_clear = true;
     }
     return
   }
@@ -266,6 +287,14 @@ export class TryComponent implements OnInit {
   }
   ngOnInit() {
     (async () => {
+      await this.WordsApi.findOne({
+        where: {
+          eng: this.coil_keyword
+        }
+      }).subscribe((Words: Words) => {
+        this.keyword_jpn = Words.jpn;
+        // console.log(this.keyword_jpn);
+      });
       await this.loaddata();
     })();
   }

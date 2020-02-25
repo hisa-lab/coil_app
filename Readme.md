@@ -77,3 +77,18 @@ coil式学習法を模したクロスワード形式で問題に回答する
   docker-compose build
   docker-compose up
 ```
+
+## デプロイ
+```
+  //ログインパスワードは https://github.com/settings/tokens で作成したトークンでログイン
+  docker login docker.pkg.github.com --username 0kaoru0
+  //プッシュ
+  docker push docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest
+  //プル
+  docker pull docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest
+  //起動
+  docker-compose -f docker-compose.deploy.yml up -d
+
+  //初めての場合はタグ付け
+  docker tag docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest
+```

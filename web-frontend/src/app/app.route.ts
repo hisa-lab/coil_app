@@ -28,25 +28,25 @@ export const route: Routes = [
         // home
         component: HomeComponent,
         path: 'home',
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         // /try
         component: TryComponent,
         path: 'try/:keyword',
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         // /review
         component: ReviewComponent,
         path: 'review/:missword',
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         //coil-edit
         component: CoilEditComponent,
         path: 'coil-edit',
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         // /loginsuccess
@@ -57,7 +57,7 @@ export const route: Routes = [
         // /loginfailed
         component: FailedComponent,
         path: 'login/Failed',
-        // canActivate: [AuthGuard]
+        // //canActivate: [AuthGuard]
     },
 
 

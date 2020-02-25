@@ -2,17 +2,20 @@
   <div class="main-content">
     <mat-card>
       <mat-card-content>
-        <img mat-card-image src={{WordData.imgURL}} width="600" alt="Photo of a Shiba Inu">
+        <a href="https://pixabay.com/ja/"><img src="../../assets/logo.png" alt="提供：pixabay"></a>
+        <img mat-card-image src={{WordData.imgURL}} width="400">
       </mat-card-content>
     </mat-card>
     <mat-card>
       <mat-card-content>
         <p>
-          <font size="5">{{WordData.sentence.en}}</font>
-          <button type="button" class="btn btn-danger" (click)="speech(WordData.sentence.en)">▶再生</button>
+          <font size="10">{{WordData.sentence.en}}</font>
         </p>
         <p>
-          <font size="5" color=" red">{{WordData.sentence.jp}}</font>
+          <button type="button" class="btn btn-danger result" (click)="speech(WordData.sentence.en)">▶再生</button>
+        </p>
+        <p>
+          <font class="ja">{{WordData.sentence.jp}}</font>
 
         </p>
 
@@ -24,7 +27,7 @@
     <tbody>
       <tr>
         <td align="right">
-          {{word.ja}}→
+          <font class="ja">{{word.ja}}→</font>
         </td>
 
         <td>
@@ -32,25 +35,25 @@
             <input type=" text " class="word " [(ngModel)]="word.ans[i]" maxlength="1 " value={{i}} id="{{i}}" #input
               (keyup)="autofocus(i,$event)">
           </div>
+          <button type="button" class="btn btn-danger scoring" (click)="speech(miss_word) ">▶発音</button>
+
         </td>
         <td>
           <!-- <font size="5" color="red">{{words[j].judge}}</font> -->
           <p *ngIf="word.judge=='×'; else elseBlock">
-            <font size="5" color="red">{{word.judge}}{{word.example}}</font>
-            <button type="button" class="btn btn-danger" (click)="speech(word.example) ">▶再生</button>
+            <font class="result">{{word.judge}}{{word.example}}</font>
+            <!-- <button type="button" class="btn btn-danger result" (click)="speech(miss_word) ">▶再生</button> -->
             <!-- {{words[j].judge}} -->
           </p>
           <ng-template #elseBlock>
-            <font size="5" color="red">{{word.judge}}</font>
+            <font result>{{word.judge}}</font>
           </ng-template>
         </td>
       </tr>
     </tbody>
   </table>
   <p>
-    <button type="button" class="btn btn-danger" (click)="review()">他の間違えた単語へ</button>
-  </p>
-  <p>
-    <button type="button" class="btn btn-danger" (click)="home()">別の問題へ</button>
+    <button type="button" class="btn btn-danger result" (click)="review()">他の間違えた単語へ</button>
+    <button type="button" class="btn btn-danger result" (click)="home()">別の問題へ</button>
   </p>
 </div>

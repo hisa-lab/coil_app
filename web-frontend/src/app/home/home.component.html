@@ -21,18 +21,18 @@
         <meter max="100" value={{ans_rate}} title="正解率"></meter>
       </p>
     </li>
-    <div *ngFor="let coil of coils">
+    <div class="wordlist" *ngFor="let coil of coils">
       <div *ngIf="state(coil.id); else elseBlock">
         <div class="list-group-item list-group-item-success" routerLink="/try/{{coil.keyword}}">
           <div>
-            {{coil.keyword}}:クリア！
+            {{coil.keyword}} : クリア！
           </div>
         </div>
       </div>
       <ng-template #elseBlock>
         <div class="list-group-item" routerLink="/try/{{coil.keyword}}">
           <div>
-            {{coil.keyword}}:未クリア
+            {{coil.keyword}} : 未クリア
           </div>
         </div>
       </ng-template>

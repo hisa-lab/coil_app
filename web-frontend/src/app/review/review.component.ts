@@ -132,8 +132,8 @@ export class ReviewComponent implements OnInit {
     (async () => {
       await this.load_question();
       await this.load_word_data();
-      await console.log(this.miss_word)
-      await console.log(this.WordData)
+      // await console.log(this.miss_word);
+      // await console.log(this.WordData);
     })();
   }
 

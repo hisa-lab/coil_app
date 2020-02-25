@@ -1,14 +1,11 @@
 <!--<h1> {{readData()}}</h1> もしその場で結果表示するならこれ-->
 <div class="center-block">
-  <h1>{{coil_keyword}}</h1>
+  <p class="keyword">{{coil_keyword}}:{{keyword_jpn}}</p>
 </div>
-
-
 
 <div class="main-content">
   <mat-card>
     <mat-card-content>
-
       <table id="mid">
         <!-- //前のレイアウトならこれ
         <table class= "table">
@@ -22,7 +19,7 @@
         <tbody>
           <tr *ngFor="let item of words let j=index;">
             <td align="right">
-              {{words[j].ja}}→
+              <font class="ja">{{words[j].ja}}→</font>
             </td>
 
             <td>
@@ -33,13 +30,13 @@
             </td>
             <td>
               <!-- <font size="5" color="red">{{words[j].judge}}</font> -->
-              <p *ngIf="words[j].judge=='×'; else elseBlock" [@EnterLeave]="'flyIn'">
-                <font size="5" color="red">{{words[j].judge}}{{words[j].example}}</font>
-                <button type="button" class="btn btn-danger" (click)="speech(words[j].example) ">▶再生</button>
+              <p class="judge" *ngIf="words[j].judge=='×'; else elseBlock" [@EnterLeave]="'flyIn'">
+                <font class="scoring" size="10"> {{words[j].judge}}{{words[j].example}}</font>
+                <!-- <button type="button" class="btn btn-danger scoring" (click)="speech(words[j].example) ">▶再生</button> -->
                 <!-- {{words[j].judge}} -->
               </p>
               <ng-template #elseBlock>
-                <font size="5" color="red">{{words[j].judge}}</font>
+                <font size="10" color="red">{{words[j].judge}}</font>
               </ng-template>
             </td>
 
@@ -58,16 +55,12 @@
   </p>
 
   <p>
-    <button type="button" class="btn btn-danger" (click)="giveup() ">ギブアップ▶</button>
+    <button type="button" class="btn btn-danger result" (click)="giveup() ">ギブアップ▶</button>
   </p>
   <p *ngIf=condition>
-    <button type="button" class="btn btn-danger" (click)="init()">もう一度挑戦する</button>
-  </p>
-  <p *ngIf=condition>
-    <button type="button" class="btn btn-danger" (click)="home()">別の問題へ</button>
-  </p>
-  <p *ngIf=condition>
-    <button type="button" class="btn btn-danger" (click)="review()">復習</button>
+    <button type="button" class="btn btn-danger result" (click)="init()">もう一度挑戦する</button>
+    <button type="button" class="btn btn-danger result" (click)="home()">別の問題選択へ</button>
+    <button *ngIf=not_clear type="button" class="btn btn-danger result" (click)="review()">復習</button>
   </p>
 
 

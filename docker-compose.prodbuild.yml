@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: prodbuild/Dockerfile
-    image: registry.nwing.net/coil/coil-app:latest
+    image: docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest
     environment:
       NODE_ENV: production
     ports:

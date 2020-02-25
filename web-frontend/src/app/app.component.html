@@ -8,22 +8,22 @@
 
     <div class="collapse navbar-collapse" id="Navber">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active" [(hidden)]="!isAuth">
-                <a class="navbar-brand" href="#/home">問題一覧</a>
-            </li>
+            <!-- <li class="nav-item active" [(hidden)]="!isAuth"> -->
+            <a class="navbar-brand" href="#/home">問題一覧</a>
+            <!-- </li> -->
             <li class="nav-item active" [(hidden)]="!isAuth">
                 <a class="nav-link" href="#coil-edit" *ngIf="AuthdataService.isAdmin">問題追加 <span
                         class="sr-only">(現位置)</span></a>
             </li>
         </ul>
 
-        <div [(hidden)]="!isAuth">
+        <!-- <div [(hidden)]="!isAuth">
             <span class="navbar-text"> {{account.email}} {{isAdmin ? '管理者':'一般ユーザー'}}</span>
             <button class="btn btn-light" type="button" (click)="AuthdataService.logout()">logout</button>
         </div>
         <div [(hidden)]="isAuth">
             <button class="btn btn-light" type="button" onClick="window.location.href='auth/google'">login</button>
-        </div>
+        </div> -->
 
     </div><!-- /.navbar-collapse -->
 </nav>

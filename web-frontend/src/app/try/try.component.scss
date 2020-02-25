@@ -11,6 +11,32 @@ input.word {
     background-position: top center;
     background-size: auto;
 }
+font.scoring{
+  font-size:30px;
+  color: red;
+}
+font.ja{
+  font-size: 30px;
+}
+p.keyword{
+  font-size: 80px;
+}
+p.judge{
+  margin: 10px 40px;
+}
+button.scoring{
+  margin: 10px 10px;
+  font-size: 30px; 
+  width: 120px;
+  height: 50px;
+}
+button.result{
+  margin: 10px 20px;
+  font-size: 30px; 
+  font-weight: 100;
+  width: 280px;
+  height: 50px;
+}
 :host {
   display: block;
 }

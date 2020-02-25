@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     if (this.AccountApi.isAuthenticated()) {
       this.AuthdataService.emitChange();
-      console.log(this.AuthdataService);
+      // console.log(this.AuthdataService);
     }
 
     this.AuthdataService.changeEmitted$.subscribe(() => {
