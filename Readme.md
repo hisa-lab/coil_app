@@ -82,5 +82,5 @@ coil式学習法を模したクロスワード形式で問題に回答する
   docker-compose -f docker-compose.deploy.yml up -d
 
   //初めての場合はタグ付け
-  docker tag docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
+  docker tag docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
 ```
