@@ -61,8 +61,8 @@ coil式学習法を模したクロスワード形式で問題に回答する
 
 
 ## 準備するもの
-* coil_generation で用意した words.json
-* coil_generation で生成した coils.json
+* 別リポジトリの [coil_generation](https://github.com/hisa-lab/coil_generation) で用意した words.json
+* 別リポジトリの [coil_generation](https://github.com/hisa-lab/coil_generation) で生成した coils.json
 ## Install
 ```
   1. web-backend/jsonにwords.jsonとcoils.jsonを置く
