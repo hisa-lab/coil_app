@@ -73,14 +73,17 @@ coil式学習法を模したクロスワード形式で問題に回答する
 ## デプロイ
 ```
   //ログインパスワードは https://github.com/settings/tokens でトークンを生成し、そのトークンでログイン
+  //トークンのスコープは write:pakages と read:pakages を選択しておく
   docker login docker.pkg.github.com --username githubのユーザー名
+  //初めての場合はプッシュ前にタグ付け
+  docker tag docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
   //プッシュ
   docker push docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
+  ---------ここからはデプロイ先での作業-----------------------
   //プル
   docker pull docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
   //起動
   docker-compose -f docker-compose.deploy.yml up -d
 
-  //初めての場合はタグ付け
-  docker tag docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
+
 ```
