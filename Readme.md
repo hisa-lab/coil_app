@@ -20,11 +20,12 @@ coil_appは、coil式学習法を利用した英単語学習webアプリケー�
 ### メールアドレス
 ```
     mt18a006@oecu.jp
-``
+```
 
 ## Description
 coil_app の構成は、clientとserverに分かれている。  
 それぞれの動作内容は以下のようになっている。
+
 ### client  
 coil式学習法を模したクロスワード形式で問題に回答する
 回答すると採点が行われる
