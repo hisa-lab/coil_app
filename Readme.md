@@ -20,15 +20,7 @@ coil_appは、coil式学習法を利用した英単語学習webアプリケー�
 ### メールアドレス
 ```
     mt18a006@oecu.jp
-```
-
-### 研究内容
-```
-    英単語の学習法として、coil（Combination Of Initial Letters）式学習法を利用したweb学習システムの開発を行う。
-    この学習法は、米津　博志さんが考案した学習法で学習本が出版されている。
-    しかし、この学習本は、難易度の幅の大きさ、手作業による問題生成による問題数の少なさなどの問題点がある。
-    coil_appでは、この学習法を計算機を使用することによって問題の自動生成及び難易度の詳細化を図り、手軽に学習できるよう様々な機能を実装したwebシステムとして開発を行う。
-```
+``
 
 ## Description
 coil_app の構成は、clientとserverに分かれている。  
@@ -66,29 +58,28 @@ coil式学習法を模したクロスワード形式で問題に回答する
     * 大学以上の水準
     * 大学院以上の水準
 
-## Requirement
 
-## Usage
-
-#### 学習方法
-
+## 準備するもの
+* coil_generation で用意した words.json
+* coil_generation で生成した coils.json
 ## Install
 ```
-  docker-compose build
-  docker-compose up
+  1. web-backend/jsonにwords.jsonとcoils.jsonを置く
+  2. docker-compose build
+  3. docker-compose up
 ```
 
 ## デプロイ
 ```
-  //ログインパスワードは https://github.com/settings/tokens で作成したトークンでログイン
-  docker login docker.pkg.github.com --username 0kaoru0
+  //ログインパスワードは https://github.com/settings/tokens でトークンを生成し、そのトークンでログイン
+  docker login docker.pkg.github.com --username githubのユーザー名
   //プッシュ
-  docker push docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest
+  docker push docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
   //プル
-  docker pull docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest
+  docker pull docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
   //起動
   docker-compose -f docker-compose.deploy.yml up -d
 
   //初めての場合はタグ付け
-  docker tag docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest docker.pkg.github.com/0kaoru0/coil_app/coil-app:latest
+  docker tag docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest docker.pkg.github.com/githubのユーザー名/coil_app/coil-app:latest
 ```

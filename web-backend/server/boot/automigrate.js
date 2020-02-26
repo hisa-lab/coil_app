@@ -38,8 +38,8 @@ module.exports = async app => {
         ]);
 
         // 問題を投入
-        let json = await JSON.parse(fs.readFileSync('./json/wordsdata.json'));
-        let coilsdata = await JSON.parse(fs.readFileSync('./json/question.json'));
+        let json = await JSON.parse(fs.readFileSync('./json/words.json'));
+        let coilsdata = await JSON.parse(fs.readFileSync('./json/coils.json'));
         let questions = [];
         console.log(json);
 
